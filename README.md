@@ -1,4 +1,4 @@
-# 🌌 NetSpectre (v2.0)
+# 🌌 NetSpectre
 ### *Advanced Quantum-Ready Network Reconnaissance Engine*
 
 NetSpectre is a high-performance network security tool designed for rapid discovery, port identification, and vulnerability correlation. It provides a sleek, modern, and interactive web dashboard featuring a stunning Glassmorphism UI.
