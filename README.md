@@ -18,6 +18,15 @@ NetSpectre is a high-performance network security tool designed for rapid discov
 
 ---
 
+## 📖 Guided Documentation
+
+Looking for more detail? Check out our visual guides:
+
+*   [**Usage Guide**](USAGE.md) - Learn how to master the scanning modes.
+*   [**Installation Guide**](USAGE.md#setup) - Detailed setup instructions for all platforms.
+
+---
+
 ## 🚀 Quick Start (Zero to Scan)
 
 Get NetSpectre up and running in less than 2 minutes.
@@ -44,15 +53,6 @@ Get NetSpectre up and running in less than 2 minutes.
 *   🎨 **Modern Design**: Crystal-clear Glassmorphism 2.0 interface.
 *   📊 **Instant Reporting**: Professional HTML reports generated after every scan.
 *   🛑 **Full Control**: Start, stop, and monitor scans in real-time.
-
----
-
-## 📖 Guided Documentation
-
-Looking for more detail? Check out our visual guides:
-
-*   [**Usage Guide**](USAGE.md) - Learn how to master the scanning modes.
-*   [**Installation Guide**](USAGE.md#setup) - Detailed setup instructions for all platforms.
 
 ---
 
