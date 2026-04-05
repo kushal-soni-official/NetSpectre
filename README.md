@@ -3,9 +3,18 @@
 
 NetSpectre is a high-performance network security tool designed for rapid discovery, port identification, and vulnerability correlation. It provides a sleek, modern, and interactive web dashboard featuring a stunning Glassmorphism UI.
 
-![NetSpectre Banner](https://img.shields.io/badge/NetSpectre-2.0.0-blueviolet?style=for-the-badge&logo=target)
-![Python](https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python)
-![Framework](https://img.shields.io/badge/Flask-Web-lightgrey?style=for-the-badge&logo=flask)
+---
+
+## Preview 
+
+1.
+![1](demo/1.png)
+
+2.  
+![2](demo/2.png)
+
+3.  
+![3](demo/3.png)
 
 ---
 
