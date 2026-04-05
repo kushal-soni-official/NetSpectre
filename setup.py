@@ -8,15 +8,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "Flask",
-        "Flask-SocketIO",
-        "celery",
-        "redis",
         "python-nmap",
-        "scapy",
-        "nvdlib",
-        "reportlab",
-        "pandas",
-        "numpy",
-        "networkx"
+        "nvdlib"
     ]
 )

@@ -1,96 +1,77 @@
-<div align="center">
-  <h1>🌐 NetSpectre</h1>
-  <p><strong>An Automated, Asynchronous Network Vulnerability Scanner</strong></p>
-  
-  <p>
-    <img alt="Python" src="https://img.shields.io/badge/Python-3.11+-blue.svg" />
-    <img alt="Framework" src="https://img.shields.io/badge/Flask%20%26%20Celery-Background%20Workers-green.svg" />
-    <img alt="Scanner" src="https://img.shields.io/badge/Engine-Nmap%20%26%20Scapy-orange.svg" />
-    <img alt="Reports" src="https://img.shields.io/badge/Exports-PDF%20%2B%20HTML-yellow.svg" />
-  </p>
-</div>
+# 🌌 NetSpectre (v2.0)
+### *Advanced Quantum-Ready Network Reconnaissance Engine*
+
+NetSpectre is a high-performance network security tool designed for rapid discovery, port identification, and vulnerability correlation. It provides a sleek, modern, and interactive web dashboard featuring a stunning Glassmorphism UI.
+
+![NetSpectre Banner](https://img.shields.io/badge/NetSpectre-2.0.0-blueviolet?style=for-the-badge&logo=target)
+![Python](https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python)
+![Framework](https://img.shields.io/badge/Flask-Web-lightgrey?style=for-the-badge&logo=flask)
 
 ---
 
-## 🌟 What is NetSpectre?
+## 🚀 Quick Start (Zero to Scan)
 
-**NetSpectre** is a professional-grade cybersecurity tool designed to automatically sweep through networks, identify every connected device, map out open ports, and cross-reference them with global vulnerability databases to find security risks (CVEs). 
+Get NetSpectre up and running in less than 2 minutes.
 
-It is separated into two parts: a heavy-lifting background worker ensuring scans never crash or lag, and a beautiful Real-Time Web Dashboard where you can watch the hacks unfold live!
+1.  **Install Requirements** (Ensure you have [Nmap](https://nmap.org/download.html) installed on your system):
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-### ✨ Key Features:
-* 📡 **Smart Scanning Modes:** Choose between a **Light Scan** (fast, stealthy) or a **Deep Scan** (intense verification, OS fingerprinting).
-* 🔍 **Automated Vulnerability Lookups:** Connects directly to NIST's National Vulnerability Database (NVD) to instantly alert you of known software flaws.
-* ⚡ **Asynchronous Engine:** Uses Celery and Redis so you can run network scans lasting anywhere from 2 minutes to 2 hours without freezing your dashboard.
-* 🎨 **Dual Reporting:** Generate clean, structured **PDF reports** for executives, or visually stunning, **Interactive HTML (Glassmorphism)** reports for modern analysts.
+2.  **Ignite the Engine**:
+    ```bash
+    python -m netspectre.app
+    ```
 
----
-
-## 🚀 Step 1: Easy Installation (Beginner Friendly!)
-
-To run NetSpectre, you'll need Python, the Nmap network scanner, and Redis (which handles background messaging).
-
-### Install System Requirements (Linux/Ubuntu):
-```bash
-sudo apt update
-sudo apt install nmap redis-server
-sudo systemctl enable redis-server
-sudo systemctl start redis-server
-```
-
-### Install the NetSpectre Python Application:
-Open your terminal, navigate into the project folder, and run:
-```bash
-# 1. Create a safe bubble for your Python app (Virtual Environment)
-python3 -m venv venv
-
-# 2. Activate the virtual environment
-source venv/bin/activate  # On Windows, use: venv\Scripts\activate
-
-# 3. Install the required Python packages
-pip install -r requirements.txt
-```
-
-*(Important Tip for Experts: You can export `NVD_API_KEY="your_api_key"` in your terminal to speed up vulnerability lookups natively!)*
+3.  **Access the Dashboard**:
+    Open [http://localhost:5000](http://localhost:5000) in your browser.
 
 ---
 
-## 💥 Step 2: Running the System
+## ⚡ Key Features
 
-NetSpectre requires two terminals to run simultaneously because the heavy network scanning happens independently of the web dashboard.
+*   🚀 **High-Velocity Scanning**: Sub-30s surface scans for rapid reconnaissance.
+*   🛡️ **Vulnerability Correlation**: Automatic CVE lookup via NVD integration.
+*   🎨 **Modern Design**: Crystal-clear Glassmorphism 2.0 interface.
+*   📊 **Instant Reporting**: Professional HTML reports generated after every scan.
+*   🛑 **Full Control**: Start, stop, and monitor scans in real-time.
 
-### Terminal A: The Scanning Engine (Background Worker)
-Because advanced network scanning requires deep operating system access (like spoofing identities or writing raw packets), the worker **must run as root/sudo**.
-```bash
-# In your netspectre folder
-source venv/bin/activate
+---
 
-# Start the Celery Worker as Root
-sudo ./venv/bin/celery -A backend.celery_worker.celery_app worker --loglevel=info
-```
+## 📖 Guided Documentation
 
-### Terminal B: The Web Dashboard
-In a completely new terminal window, start your dashboard:
-```bash
-# In your netspectre folder
-source venv/bin/activate
+Looking for more detail? Check out our visual guides:
 
-# Start the Web Server
-PYTHONPATH=. python backend/app.py
+*   [**Usage Guide**](USAGE.md) - Learn how to master the scanning modes.
+*   [**Installation Guide**](USAGE.md#setup) - Detailed setup instructions for all platforms.
+
+---
+
+## 📂 Project Architecture
+
+```text
+netspectre/
+├── netspectre/                 # Core Engine
+│   ├── app.py                  # Entry Point
+│   ├── scanner.py              # Scanning Logic
+│   └── web/                    # Dashboard Interface
+├── reports/                    # Generated Intelligence
+├── tests/                      # Reliability Tests
+└── USAGE.md                    # Detailed Manual
 ```
 
 ---
 
-## 🌐 Step 3: Using the Dashboard
+## 🔮 Future Roadmap
 
-1. Open your web browser (Chrome, Firefox, Safari) and visit: 👉 **[http://localhost:5000](http://localhost:5000)** 👈
-2. In the **Target Range**, type the IP address or Subnet you want to scan (e.g., `192.168.1.0/24`).
-3. Select your **Scan Profile** (Light or Deep).
-4. Click **Initialize Scan**!
-5. Watch the glowing terminal window as NetSpectre finds active devices, probes their services, and logs vulnerabilities in real-time. 
-6. When complete, click the buttons on-screen to instantly download your **PDF** or **Interactive HTML** Report!
+*   **AI-Powered Triaging**: LLM-based analysis of vulnerabilities.
+*   **Mesh Graphing**: Visualize your network topology in 3D.
+*   **Distributed Scanners**: Deployable agents for multi-point reconnaissance.
 
 ---
-<div align="center">
-  <i>Created for cybersecurity mapping and vulnerability exposure. Built cleanly and defensively.</i>
-</div>
+
+## 📜 license & Legal
+
+Distributed under the MIT License. Use responsibly.
+
+*“Seeing through the network shroud.”*
