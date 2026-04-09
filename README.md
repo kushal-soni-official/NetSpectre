@@ -1,29 +1,11 @@
-# 🌌 NetSpectre
+# 🌌 NetSpectre (v2.0)
 ### *Advanced Quantum-Ready Network Reconnaissance Engine*
 
 NetSpectre is a high-performance network security tool designed for rapid discovery, port identification, and vulnerability correlation. It provides a sleek, modern, and interactive web dashboard featuring a stunning Glassmorphism UI.
 
----
-
-## Preview 
-
-1.
-![1](demo/1.png)
-
-2.  
-![2](demo/2.png)
-
-3.  
-![3](demo/3.png)
-
----
-
-## 📖 Guided Documentation
-
-Looking for more detail? Check out our visual guides:
-
-*   [**Usage Guide**](USAGE.md) - Learn how to master the scanning modes.
-*   [**Installation Guide**](USAGE.md#setup) - Detailed setup instructions for all platforms.
+![NetSpectre Banner](https://img.shields.io/badge/NetSpectre-2.0.0-blueviolet?style=for-the-badge&logo=target)
+![Python](https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python)
+![Framework](https://img.shields.io/badge/Flask-Web-lightgrey?style=for-the-badge&logo=flask)
 
 ---
 
@@ -46,6 +28,31 @@ Get NetSpectre up and running in less than 2 minutes.
 
 ---
 
+## 🔑 NVD API Integration (Optional but Recommended)
+
+NetSpectre uses the [National Vulnerability Database (NVD)](https://nvd.nist.gov/) to correlate service versions with known CVEs. 
+
+While it works out of the box, setting an API key is highly recommended for faster lookups and higher rate limits.
+
+| Mode | Speed / Rate Limit |
+|---|---|
+| **Without Key** | 1.0s delay per request (~5 req / 30s) |
+| **With Key** | 0.5s delay per request (Significantly faster) |
+
+### 1. Get Your Free Key
+Request a free key instantly at [NVD Key Request](https://nvd.nist.gov/developers/request-an-api-key).
+
+### 2. Set the Environment Variable
+**Windows (Command Prompt):**
+```cmd
+set NVD_API_KEY=your_key_here
+```
+
+**Linux/macOS:**
+```bash
+export NVD_API_KEY='your_key_here'
+```
+
 ## ⚡ Key Features
 
 *   🚀 **High-Velocity Scanning**: Sub-30s surface scans for rapid reconnaissance.
@@ -53,6 +60,15 @@ Get NetSpectre up and running in less than 2 minutes.
 *   🎨 **Modern Design**: Crystal-clear Glassmorphism 2.0 interface.
 *   📊 **Instant Reporting**: Professional HTML reports generated after every scan.
 *   🛑 **Full Control**: Start, stop, and monitor scans in real-time.
+
+---
+
+## 📖 Guided Documentation
+
+Looking for more detail? Check out our visual guides:
+
+*   [**Usage Guide**](USAGE.md) - Learn how to master the scanning modes.
+*   [**Installation Guide**](USAGE.md#setup) - Detailed setup instructions for all platforms.
 
 ---
 

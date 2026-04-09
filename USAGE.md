@@ -27,6 +27,14 @@ This guide provides a detailed walkthrough of how to use NetSpectre effectively 
     pip install -r requirements.txt
     ```
 
+### 🔑 NVD API Key (Optional)
+While NetSpectre works out of the box, it is limited by the NVD public rate limit (1 request per second). To double your scan speed and ensure reliability, set your API key:
+
+1.  Get a key from [NVD Developers](https://nvd.nist.gov/developers/request-an-api-key).
+2.  Set it as an environment variable:
+    *   **Windows**: `set NVD_API_KEY=your_key`
+    *   **Linux/Mac**: `export NVD_API_KEY='your_key'`
+
 ---
 
 ## 🚀 Running the Application
