@@ -1,4 +1,4 @@
-# 🌌 NetSpectre (v2.0)
+# 🌌 NetSpectre
 ### *Advanced Quantum-Ready Network Reconnaissance Engine*
 
 NetSpectre is a high-performance network security tool designed for rapid discovery, port identification, and vulnerability correlation. It provides a sleek, modern, and interactive web dashboard featuring a stunning Glassmorphism UI.
@@ -8,6 +8,17 @@ NetSpectre is a high-performance network security tool designed for rapid discov
 ![Framework](https://img.shields.io/badge/Flask-Web-lightgrey?style=for-the-badge&logo=flask)
 
 ---
+
+## 🪄 Preview
+
+![1](demo/1.png)
+
+![2](demo/2.png)
+
+![3](demo/3.png)
+
+---
+
 
 ## 🚀 Quick Start (Zero to Scan)
 
@@ -109,4 +120,4 @@ netspectre/
 
 Distributed under the MIT License. Use responsibly.
 
-*“Seeing through the network shroud.”*
+---
