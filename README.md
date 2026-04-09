@@ -53,6 +53,16 @@ set NVD_API_KEY=your_key_here
 export NVD_API_KEY='your_key_here'
 ```
 
+### 3. Verify the Setup
+Run this command to check if the variable is active:
+- **Windows:** `echo %NVD_API_KEY%`
+- **Linux/macOS:** `echo $NVD_API_KEY`
+
+> [!TIP]
+> NetSpectre will also display a **[CONFIRMED]** status in the console during startup if the key is detected.
+
+---
+
 ## ⚡ Key Features
 
 *   🚀 **High-Velocity Scanning**: Sub-30s surface scans for rapid reconnaissance.

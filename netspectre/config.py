@@ -14,3 +14,9 @@ class Config:
     @staticmethod
     def init_app(app):
         os.makedirs(Config.REPORTS_DIR, exist_ok=True)
+        # NVD API Status Message
+        if Config.NVD_API_KEY:
+            print(f"\n[+] NVD API: [CONFIRMED] (Key found: {Config.NVD_API_KEY[:4]}...{Config.NVD_API_KEY[-4:]})")
+        else:
+            print("\n[!] NVD API: [MISSING] (Vulnerability lookups will be slower due to rate limits)")
+            print("[TIP] Set 'NVD_API_KEY' environment variable for 2x faster scans.\n")
