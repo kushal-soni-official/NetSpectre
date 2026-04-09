@@ -458,7 +458,7 @@
             </div>
         </nav>
         <div style="margin-top: auto; padding: 1rem; border-top: 1px solid var(--glass-border); font-size: 0.8rem; color: var(--text-dim);">
-            v2.0.0-Stable | Quantum Ready
+            v2.0.0-Stable | Developed by <a href="https://github.com/kushal-soni-official" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">Kushal Soni</a>
         </div>
     </aside>
 
@@ -551,17 +551,22 @@
 
                 <div id="status-dock" class="status-dock">
                     <div class="progress-circle">
-                        <div class="spinner"></div>
+                        <div class="spinner" id="status-spinner"></div>
                         <div id="elapsed-time" class="timer-display">00:00</div>
                     </div>
-                    
-                    <h3 id="current-status-text" style="text-align: center; margin-bottom: 1rem; color: var(--accent);">Ready for Infiltration</h3>
+
+                    <div id="status-display-area" style="text-align: center; margin-bottom: 2rem;">
+                        <div id="status-icon" style="display: none; margin-bottom: 1rem;">
+                            <i id="final-icon" data-lucide="check-circle" size="48" style="filter: drop-shadow(0 0 10px currentColor);"></i>
+                        </div>
+                        <h3 id="current-status-text" style="color: var(--accent); transition: all 0.3s ease;">Ready for Infiltration</h3>
+                    </div>
                     
                     <div class="terminal" id="terminal-feed">
                         <div class="terminal-line">Awaiting tactical objectives...</div>
                     </div>
 
-                    <div id="result-anchor" style="text-align: center; margin-top: 1.5rem;"></div>
+                    <div id="result-anchor" style="text-align: center; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem; align-items: center;"></div>
                 </div>
             </div>
         </section>
@@ -599,6 +604,19 @@
                             <li>📱 Integrated Command Mobile UI</li>
                         </ul>
                     </div>
+                </div>
+
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--glass-border); text-align: center;">
+                    <p style="color: var(--text-dim);">Engine Architected & Built by</p>
+                    <a href="https://github.com/kushal-soni-official" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; text-decoration: none; margin-top: 1rem;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; align-items: center; justify-content: center; color: #fff;">
+                            <i data-lucide="github" size="24"></i>
+                        </div>
+                        <div style="text-align: left;">
+                            <h4 style="color: #fff; margin: 0;">Kushal Soni</h4>
+                            <p style="color: var(--primary); font-size: 0.85rem; margin: 0;">github.com/kushal-soni-official</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -646,6 +664,9 @@
             document.getElementById('status-dock').style.display = 'block';
             document.getElementById('result-anchor').innerHTML = '';
             document.getElementById('terminal-feed').innerHTML = '';
+            document.getElementById('status-spinner').style.display = 'block';
+            document.getElementById('status-icon').style.display = 'none';
+            document.getElementById('current-status-text').style.color = 'var(--accent)';
             
             logToTerminal(`Initializing ${mode.toUpperCase()} infiltration on ${target}...`);
 
@@ -694,9 +715,16 @@
                 clearInterval(pollTimer);
                 resetScannerUI();
 
+                // Stop Animation and Show Icon
+                document.getElementById('status-spinner').style.display = 'none';
+                document.getElementById('status-icon').style.display = 'block';
+                const finalIcon = document.getElementById('final-icon');
+
                 if(data.state === 'SUCCESS') {
-                    document.getElementById('current-status-text').innerText = "Transmission Complete";
+                    document.getElementById('current-status-text').innerText = "Operation Successful: Intel Captured";
                     document.getElementById('current-status-text').style.color = 'var(--success)';
+                    finalIcon.setAttribute('data-lucide', 'check-circle');
+                    finalIcon.style.color = 'var(--success)';
                     
                     const reportBtn = document.createElement('a');
                     reportBtn.href = `/api/scan/report/${data.result.html_report}`;
@@ -705,11 +733,18 @@
                     reportBtn.style.background = 'var(--success)';
                     reportBtn.innerHTML = '<i data-lucide="file-text"></i> Access Intelligence Report';
                     document.getElementById('result-anchor').appendChild(reportBtn);
-                    lucide.createIcons();
-                } else {
-                    document.getElementById('current-status-text').innerText = data.state;
+                } else if(data.state === 'FAILURE') {
+                    document.getElementById('current-status-text').innerText = "Operation Failure: " + (data.status || "Unknown Error");
                     document.getElementById('current-status-text').style.color = 'var(--error)';
+                    finalIcon.setAttribute('data-lucide', 'alert-octagon');
+                    finalIcon.style.color = 'var(--error)';
+                } else {
+                    document.getElementById('current-status-text').innerText = "Operation Aborted by Console";
+                    document.getElementById('current-status-text').style.color = 'var(--warning)';
+                    finalIcon.setAttribute('data-lucide', 'slash');
+                    finalIcon.style.color = 'var(--warning)';
                 }
+                lucide.createIcons();
             }
         }
 

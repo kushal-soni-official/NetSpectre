@@ -176,9 +176,12 @@ class TaskManager:
                     self.tasks[task_id]['result'] = res
                     self.tasks[task_id]['end_time'] = time.time()
                     self.tasks[task_id]['duration'] = self.tasks[task_id]['end_time'] - start_time
+            except nmap.PortScannerError:
+                self.tasks[task_id]['state'] = 'FAILURE'
+                self.tasks[task_id]['status'] = "Nmap installation not found. Please install Nmap from nmap.org and add it to your PATH."
             except Exception as e:
                 self.tasks[task_id]['state'] = 'FAILURE'
-                self.tasks[task_id]['status'] = str(e)
+                self.tasks[task_id]['status'] = f"Fatal Error: {str(e)}"
 
         t = threading.Thread(target=worker)
         t.daemon = True

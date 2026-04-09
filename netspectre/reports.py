@@ -146,7 +146,7 @@ def generate_html_report(scan_data: dict, output_path: str):
             <div>Open Ports Discovered</div>
         </div>
         <div class="stat-card">
-            <div class="stat-value" style="color: {var(--critical) if total_cves > 0 else var(--accent)}">{total_cves}</div>
+            <div class="stat-value" style="color: {'var(--critical)' if total_cves > 0 else 'var(--accent)'}">{total_cves}</div>
             <div>Vulnerabilities (CVEs)</div>
         </div>
     </div>
